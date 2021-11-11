@@ -9,6 +9,7 @@ def main(argv):
     persons = []
     pair = []
 
+#   Read files
     with open(mail_file, "r") as m:
         for line in m:
             mails.append(line)
@@ -29,15 +30,21 @@ def main(argv):
         pair[random] = tmp
         i += 1
 
-#   Move the person one spot further
+#   Shift person by one position
+    shufflelist = []
+    for i in pair:
+        shufflelist.append("")
     i = 0
-    buffer = pair[len(pair) - 1]
-    while i < len(pair) - 1:
-        buffer = pair[i + 1][1]
-        pair[i + 1][1] = pair[i][1]
+    while i < len(pair):
+        shufflelist[i] = pair[i][1]
         i += 1
-    pair[0][1] = buffer
-    pass
+    shufflelist.append(shufflelist.pop(0))
+    i = 0
+    while i < len(shufflelist):
+        pair[i][1] = shufflelist[i]
+        i += 1
+
+#   E-mail transfer
 
 
 if __name__ == "__main__":
