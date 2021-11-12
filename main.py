@@ -65,7 +65,7 @@ def main(argv):
             message = pair[i][1]
             server.sendmail(sender_email, receiver_email, message)
             i += 1
-    print("Your looking good!")
+    print("You're looking good!")
 
 
 if __name__ == "__main__":
